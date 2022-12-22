@@ -13,7 +13,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-	const includedSets = new Set();
+	const characterSets = [];
 
 	const passwordLength = parseInt(
 		prompt("Please provide a password length between 8 and 128 inclusive")
@@ -24,15 +24,15 @@ function generatePassword() {
 	}
 
 	if (confirm("Would you like to include lowercase letters?"))
-		includedSets.add("lowercase");
+		characterSets.push("abcdefghijklmnopqrstuvwxyz");
 	if (confirm("Would you like to include uppercase letters?"))
-		includedSets.add("uppercase");
+		characterSets.push("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	if (confirm("Would you like to include numbers?"))
-		includedSets.add("numeric");
+		characterSets.push("0123456789");
 	if (confirm("Would you like to include special characters?"))
-		includedSets.add("special");
+		characterSets.push("!@#$%^&*()_+-=[]{}\\|/?.>,<:;'\"`~");
 
-	if (includedSets.size === 0) {
+	if (characterSets.length === 0) {
 		alert("You must select atleast 1 character type to include.");
 		return "Error: Invalid Parameters";
 	}
