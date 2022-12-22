@@ -36,4 +36,12 @@ function generatePassword() {
 		alert("You must select atleast 1 character type to include.");
 		return "Error: Invalid Parameters";
 	}
+
+	let password = "";
+	const usableCharacters = characterSets.join("").split("");
+	for (let i = 0; i < passwordLength; i++) {
+		password +=
+			usableCharacters[Math.floor(Math.random() * usableCharacters.length)];
+	}
+	return password;
 }
